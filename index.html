@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#2e8b57" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="apple-mobile-web-app-title" content="KING ASAD TELEKOM" />
+  <title>KING ASAD TELEKOM</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --emerald: #2e8b57;
+      --emerald-dark: #1f6b40;
+      --bg-gray: #f2f5f4;
+      --card-bg: #eceeed;
+      --white: #ffffff;
+      --text-dark: #1b2420;
+      --text-muted: #5d6d66;
+      --info-blue: #156588;
+      --plus-green: #439a57;
+      --shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background-color: #18201c;
+      display: flex;
+      justify-content: center;
+      min-height: 100vh;
+      color: var(--text-dark);
+    }
+
+    .app-shell {
+      width: 100%;
+      max-width: 460px;
+      min-height: 100vh;
+      background-color: var(--bg-gray);
+      position: relative;
+      overflow-x: hidden;
+      padding-bottom: 96px;
+      box-shadow: 0 0 40px rgba(0, 0, 0, 0.45);
+    }
+
+    .top-header {
+      background-color: var(--white);
+      padding: 14px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid #e2e8e5;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .menu-btn {
+      background: none;
+      border: none;
+      font-size: 24px;
+      color: var(--emerald-dark);
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    .brand-title {
+      font-size: 16.5px;
+      font-weight: 800;
+      color: var(--emerald-dark);
+    }
+
+    .currency-switcher {
+      display: flex;
+      gap: 3px;
+      background: var(--bg-gray);
+      padding: 4px;
+      border-radius: 10px;
+    }
+
+    .curr-btn {
+      border: none;
+      background: transparent;
+      padding: 5px 7px;
+      border-radius: 7px;
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+    }
+
+    .curr-btn.active {
+      background: var(--emerald);
+      color: var(--white);
+    }
+
+    .install-banner {
+      margin: 12px 16px 0;
+      background: linear-gradient(135deg, var(--emerald) 0%, var(--emerald-dark) 100%);
+      color: var(--white);
+      border-radius: 14px;
+      padding: 11px 14px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 12px;
+    }
+
+    .install-btn {
+      background: var(--white);
+      color: var(--emerald-dark);
+      border: none;
+      border-radius: 9px;
+      padding: 6px 12px;
+      font-size: 11.5px;
+      font-weight: 800;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+
+    .section-block {
+      padding: 16px 16px 6px;
+    }
+
+    .section-heading {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--emerald-dark);
+      margin-bottom: 12px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+
+    .sq-card {
+      background-color: var(--card-bg);
+      border-radius: 16px;
+      padding: 14px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+      border: 1px solid #dfe5e2;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      min-height: 114px;
+    }
+
+    .sq-card:active {
+      transform: scale(0.96);
+    }
+
+    .circle-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--white);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.12);
+      margin-bottom: 8px;
+      border: 2px solid var(--white);
+    }
+
+    .circle-icon img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .card-label {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      line-height: 1.35;
+    }
+
+    .text-only-card {
+      min-height: 76px;
+      padding: 14px 12px;
+      background-color: var(--white);
+      border-radius: 14px;
+    }
+
+    .text-only-card .card-label {
+      font-size: 13px;
+      color: var(--emerald-dark);
+    }
+
+    .text-only-card .pkg-badge {
+      margin-top: 6px;
+      font-size: 10.5px;
+      color: var(--text-muted);
+      background: var(--bg-gray);
+      padding: 2px 8px;
+      border-radius: 999px;
+    }
+
+    .detail-page {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 460px;
+      height: 100vh;
+      background-color: #f4f7f5;
+      z-index: 40;
+      overflow-y: auto;
+      padding-bottom: 40px;
+    }
+
+    .detail-page.open {
+      display: block;
+    }
+
+    .detail-hero {
+      background: linear-gradient(180deg, var(--emerald) 0%, var(--emerald-dark) 100%);
+      color: var(--white);
+      padding: 16px 18px 54px;
+      border-bottom-left-radius: 28px;
+      border-bottom-right-radius: 28px;
+    }
+
+    .detail-top-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+    }
+
+    .back-btn {
+      background: rgba(255, 255, 255, 0.18);
+      border: none;
+      color: var(--white);
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .detail-title {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .add-price-btn {
+      background: var(--white);
+      color: var(--emerald-dark);
+      border: none;
+      padding: 7px 12px;
+      border-radius: 10px;
+      font-size: 12px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .pkg-count-box {
+      text-align: right;
+      margin-top: 6px;
+    }
+
+    .pkg-count-label {
+      font-size: 13px;
+      opacity: 0.92;
+    }
+
+    .pkg-count-num {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    .detail-center-avatar {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: var(--white);
+      margin: -42px auto 14px;
+      position: relative;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.16);
+      border: 4px solid #ffffff;
+      overflow: hidden;
+    }
+
+    .detail-center-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .detail-center-text-badge {
+      font-size: 12.5px;
+      font-weight: 800;
+      color: var(--emerald-dark);
+      padding: 6px;
+      text-align: center;
+    }
+
+    .package-list {
+      padding: 6px 14px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .pkg-row {
+      background: var(--white);
+      border-radius: 999px;
+      padding: 10px 18px 10px 12px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+      border: 1px solid #e7eeea;
+    }
+
+    .pkg-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+
+    .pkg-name {
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .pkg-prices-line {
+      font-size: 11.5px;
+      font-weight: 700;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .sell-txt {
+      color: #c62828;
+    }
+
+    .buy-txt {
+      color: var(--emerald-dark);
+    }
+
+    .pkg-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-circle-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background-color: var(--info-blue);
+      color: var(--white);
+      font-weight: 800;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    .plus-circle-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      border: none;
+      background-color: var(--plus-green);
+      color: var(--white);
+      font-weight: 800;
+      font-size: 20px;
+      line-height: 1;
+      cursor: pointer;
+    }
+
+    .empty-pkg-box {
+      background: var(--white);
+      border-radius: 18px;
+      padding: 26px 18px;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 13.5px;
+      border: 1px dashed #c8d4cd;
+    }
+
+    .bottom-dock {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 460px;
+      height: 64px;
+      background: var(--white);
+      border-top: 1px solid #e0e6e3;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      z-index: 30;
+    }
+
+    .dock-btn {
+      background: none;
+      border: none;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .home-fab {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: var(--emerald-dark);
+      color: var(--white);
+      border: 4px solid var(--bg-gray);
+      font-size: 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      margin-top: -24px;
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+    }
+
+    .arc-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(12, 18, 15, 0.72);
+      z-index: 50;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .arc-overlay.open {
+      display: flex;
+    }
+
+    .arc-panel {
+      width: 92%;
+      max-width: 420px;
+      background: var(--white);
+      border-radius: 24px;
+      padding: 20px;
+      max-height: 85vh;
+      overflow-y: auto;
+    }
+
+    .arc-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      border-bottom: 1px solid #edf2ef;
+      padding-bottom: 10px;
+    }
+
+    .arc-title {
+      font-size: 15.5px;
+      font-weight: 800;
+      color: var(--emerald-dark);
+    }
+
+    .close-modal-btn {
+      background: #f0f4f2;
+      border: none;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 16px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .arc-menu-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+    }
+
+    .arc-item-btn {
+      background: #f4f8f6;
+      border: 1px solid #dce6e0;
+      border-radius: 14px;
+      padding: 12px 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: var(--text-dark);
+      cursor: pointer;
+      text-align: right;
+    }
+
+    .arc-badge-dot {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: var(--plus-green);
+      color: var(--white);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    .form-group {
+      margin-bottom: 10px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 9px 11px;
+      border-radius: 10px;
+      border: 1px solid #cfd9d3;
+      font-size: 13px;
+    }
+
+    .primary-btn {
+      width: 100%;
+      background: var(--emerald);
+      color: var(--white);
+      border: none;
+      padding: 11px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 6px;
+    }
+
+    .whatsapp-btn {
+      width: 100%;
+      background: #1ea853;
+      color: var(--white);
+      border: none;
+      padding: 11px;
+      border-radius: 12px;
+      font-size: 13.5px;
+      font-weight: 800;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    .ledger-card {
+      background: #f6f9f7;
+      border: 1px solid #e1eae4;
+      border-radius: 12px;
+      padding: 10px 12px;
+      margin-bottom: 8px;
+      font-size: 12.5px;
+      line-height: 1.6;
+    }
+
+    .currency-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 8px;
+      font-size: 12px;
+    }
+
+    .currency-table th,
+    .currency-table td {
+      border: 1px solid #e1e8e4;
+      padding: 8px 6px;
+      text-align: center;
+    }
+
+    .currency-table th {
+      background: #eef5f1;
+      color: var(--emerald-dark);
+    }
+  </style>
+</head>
+<body>
+  <div class="app-shell" id="mainApp">
+    <header class="top-header">
+      <div class="header-right">
+        <button class="menu-btn" onclick="openMenuModal()" aria-label="منو">☰</button>
+        <div class="brand-title">KING ASAD TELEKOM</div>
+      </div>
+      <div class="currency-switcher">
+        <button class="curr-btn active" data-curr="TRY" onclick="setCurrency('TRY')">لیر</button>
+        <button class="curr-btn" data-curr="IRT" onclick="setCurrency('IRT')">تومن</button>
+        <button class="curr-btn" data-curr="AFN" onclick="setCurrency('AFN')">افغانی</button>
+        <button class="curr-btn" data-curr="EUR" onclick="setCurrency('EUR')">یورو</button>
+      </div>
+    </header>
+
+    <div class="install-banner">
+      <span>نصب سریع روی آیفون و اندروید</span>
+      <button class="install-btn" onclick="showInstallGuide()">راهنمای نصب</button>
+    </div>
+
+    <section class="section-block">
+      <div class="section-heading">
+        <span>بخش اول - برنامه‌ها و سکه‌ها</span>
+      </div>
+      <div class="grid-3" id="socialAppsGrid"></div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading">
+        <span>مخابرات افغانستان و ایران</span>
+      </div>
+      <div class="grid-2" id="telecomGrid"></div>
+    </section>
+
+    <section class="section-block">
+      <div class="section-heading">
+        <span>بازی‌های آنلاین و حواله‌جات</span>
+      </div>
+      <div class="grid-2" id="gamesAndRemitGrid"></div>
+    </section>
+
+    <nav class="bottom-dock">
+      <button class="dock-btn" onclick="openSubSection('transactions')">
+        <span>⇄</span>
+        <span>ترانکش</span>
+      </button>
+      <button class="home-fab" onclick="closeDetailPage()" aria-label="خانه">⌂</button>
+      <button class="dock-btn" onclick="openMenuModal()">
+        <span>⚙</span>
+        <span>تنظیمات</span>
+      </button>
+    </nav>
+  </div>
+
+  <div class="detail-page" id="detailPage">
+    <div class="detail-hero">
+      <div class="detail-top-bar">
+        <button class="back-btn" onclick="closeDetailPage()" aria-label="بازگشت">↩</button>
+        <div class="detail-title" id="detailTitle">نام بخش</div>
+        <button class="add-price-btn" onclick="openAddPackageModal()">+ افزودن قیمت</button>
+      </div>
+      <div class="pkg-count-box">
+        <div class="pkg-count-label">Package Count / تعداد بسته</div>
+        <div class="pkg-count-num" id="detailPkgCount">0</div>
+      </div>
+    </div>
+
+    <div class="detail-center-avatar" id="detailCenterAvatar"></div>
+    <div class="package-list" id="detailPackageList"></div>
+  </div>
+
+  <div class="arc-overlay" id="modalOverlay" onclick="handleOverlayClick(event)">
+    <div class="arc-panel" id="modalContent"></div>
+  </div>
+
+  <script>
+    const WHATSAPP_NUMBER = "4915212898695";
+
+    const ICONS = {
+      imo: `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" rx="28" fill="#ffffff"/><path d="M60 22c-22.5 0-40 16.5-40 36.8 0 10.6 4.8 20.1 12.6 26.8L29 98l14.2-6.1c5.2 2 10.9 3.1 16.8 3.1 22.5 0 40-16.5 40-36.8S82.5 22 60 22z" fill="none" stroke="#1898f2" stroke-width="8"/><text x="60" y="69" text-anchor="middle" fill="#1898f2" font-family="Arial, sans-serif" font-weight="bold" font-size="31">imo</text></svg>`)}`,
+      likee: `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" rx="24" fill="#ffffff"/><path d="M60 100L23 64C12 53 15 33 29 26c10-5 22-1 29 8 7-9 19-13 29-8 14 7 17 27 6 38L60 100z" fill="#ff9800"/><path d="M60 100L23 64C12 53 15 33 29 26c10-5 22-1 29 8L60 37v63z" fill="#e040fb"/><path d="M60 100l37-36c11-11 8-31-6-38-10-5-22-1-29 8L60 37v63z" fill="#ff3d00"/></svg>`)}`,
+      saye: `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" rx="24" fill="#ffd600"/><circle cx="62" cy="64" r="30" fill="#111111"/><path d="M36 60c0-16 12-27 27-27s27 11 27 27c0 6-2 11-5 15-14-4-34-4-49-15z" fill="#ffffff"/><rect x="49" y="45" width="7" height="14" rx="3.5" fill="#111111"/><rect x="64" y="45" width="7" height="14" rx="3.5" fill="#111111"/><path d="M24 38l14 9M36 22l8 16M54 16l2 17" stroke="#111111" stroke-width="7" stroke-linecap="round"/></svg>`)}`,
+      hapi: `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" rx="24" fill="#18c4a0"/><text x="60" y="38" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-weight="bold" font-size="25">Hapi</text><ellipse cx="64" cy="86" rx="36" ry="30" fill="#ffe600"/><circle cx="55" cy="74" r="4" fill="#3e2723"/><circle cx="71" cy="74" r="4" fill="#3e2723"/><path d="M54 84c4 10 18 10 22 0z" fill="#bf5a18"/><circle cx="33" cy="88" r="18" fill="#69f0ae"/><circle cx="29" cy="85" r="3" fill="#1b5e20"/><circle cx="39" cy="85" r="3" fill="#1b5e20"/></svg>`)}`,
+      ligo: `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" rx="24" fill="#8b3dff"/><path d="M44 34c-16 0-28 12-28 28s12 28 28 28h28c16 0 28-12 28-28s-12-28-28-28H44z" fill="none" stroke="#ffffff" stroke-width="8"/><circle cx="38" cy="58" r="5" fill="#ffffff"/><circle cx="52" cy="58" r="5" fill="#ffffff"/><path d="M68 68c4 9 18 9 22 0z" fill="#ffffff"/></svg>`)}`,
+      halo: `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" rx="24" fill="#6c2bd9"/><ellipse cx="60" cy="30" rx="28" ry="8" fill="none" stroke="#ffd54f" stroke-width="5"/><circle cx="60" cy="68" r="24" fill="#ffffff"/><circle cx="52" cy="65" r="4" fill="#6c2bd9"/><circle cx="68" cy="65" r="4" fill="#6c2bd9"/><path d="M52 74c5 6 11 6 16 0" fill="none" stroke="#6c2bd9" stroke-width="3.5" stroke-linecap="round"/></svg>`)}`,
+      ditto: `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" rx="24" fill="#3949ab"/><ellipse cx="48" cy="28" rx="8" ry="20" fill="#f8bbd0"/><ellipse cx="72" cy="28" rx="8" ry="20" fill="#f8bbd0"/><circle cx="60" cy="68" r="32" fill="#fce4ec"/><rect x="34" y="54" width="24" height="15" rx="5" fill="#d81b60"/><rect x="62" y="54" width="24" height="15" rx="5" fill="#d81b60"/><line x1="58" y1="60" x2="62" y2="60" stroke="#d81b60" stroke-width="4"/><text x="60" y="102" text-anchor="middle" fill="#ffd600" font-family="Arial, sans-serif" font-weight="bold" font-size="22">DiTTo</text></svg>`)}`,
+      wow: `data:image/svg+xml;utf8,${encodeURIComponent(`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120"><rect width="120" height="120" rx="24" fill="#26c6da"/><circle cx="60" cy="64" r="32" fill="#ff9800"/><path d="M34 42l-4-16 16 10zM86 42l4-16-16 10z" fill="#ff9800"/><path d="M30 52c0-18 60-18 60 0v8H30v-8z" fill="#ffffff"/><circle cx="49" cy="62" r="4" fill="#212121"/><circle cx="71" cy="62" r="4" fill="#212121"/><rect x="66" y="68" width="14" height="22" rx="7" fill="#ffd54f"/></svg>`)}`
+    };
+
+    const SECTIONS = [
+      { id: "imo", title: "الماس ایمو", group: "social", hasAvatar: true, icon: ICONS.imo },
+      { id: "likee", title: "الماس لایکی", group: "social", hasAvatar: true, icon: ICONS.likee },
+      { id: "saye", title: "سکه برنامه سایه", group: "social", hasAvatar: true, icon: ICONS.saye },
+      { id: "hapi", title: "سکه هپی", group: "social", hasAvatar: true, icon: ICONS.hapi },
+      { id: "ligo", title: "سکه لیگو لایف", group: "social", hasAvatar: true, icon: ICONS.ligo },
+      { id: "halo", title: "سکه هیلو", group: "social", hasAvatar: true, icon: ICONS.halo },
+      { id: "ditto", title: "سکه دیتو", group: "social", hasAvatar: true, icon: ICONS.ditto },
+      { id: "wow", title: "سکه واو", group: "social", hasAvatar: true, icon: ICONS.wow },
+
+      { id: "af_credit", title: "کریدت کارت های افغانستان", group: "telecom", hasAvatar: false },
+      { id: "af_bundle", title: "بسته های انترنتی افغانستان", group: "telecom", hasAvatar: false },
+      { id: "ir_credit", title: "کریدت کارت های ایران", group: "telecom", hasAvatar: false },
+      { id: "ir_bundle", title: "بسته های انترنتی ایران", group: "telecom", hasAvatar: false },
+
+      { id: "pubg_tr", title: "یوسی پاپجی ترکیه", group: "games", hasAvatar: false },
+      { id: "pubg_gl", title: "یوسی پاپجی گلوبل", group: "games", hasAvatar: false },
+      { id: "free_fire", title: "الماس فیری فایر", group: "games", hasAvatar: false },
+      { id: "coc", title: "سکه کلش اف کلن", group: "games", hasAvatar: false },
+      { id: "remittance", title: "بخش حواله جات سرتاسر جهان", group: "games", hasAvatar: false }
+    ];
+
+    const CURRENCY_LABELS = {
+      TRY: "لیر",
+      IRT: "تومن",
+      AFN: "افغانی",
+      EUR: "یورو"
+    };
+
+    let state = {
+      currency: "TRY",
+      activeSectionId: null,
+      packages: {},
+      transactions: [],
+      receipts: [],
+      receivables: [],
+      payables: [],
+      profits: []
+    };
+
+    function loadState() {
+      try {
+        const saved = localStorage.getItem("KING_ASAD_TELEKOM_PWA_V1");
+        if (saved) {
+          state = { ...state, ...JSON.parse(saved) };
+        }
+      } catch (e) {}
+      SECTIONS.forEach(sec => {
+        if (!Array.isArray(state.packages[sec.id])) {
+          state.packages[sec.id] = [];
+        }
+      });
+    }
+
+    function saveState() {
+      localStorage.setItem("KING_ASAD_TELEKOM_PWA_V1", JSON.stringify(state));
+    }
+
+    function setCurrency(curr) {
+      state.currency = curr;
+      saveState();
+      document.querySelectorAll(".curr-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.curr === curr);
+      });
+      renderHomeGrids();
+      if (state.activeSectionId) {
+        renderDetailPackages(state.activeSectionId);
+      }
+    }
+
+    function renderHomeGrids() {
+      const socialGrid = document.getElementById("socialAppsGrid");
+      const telecomGrid = document.getElementById("telecomGrid");
+      const gamesGrid = document.getElementById("gamesAndRemitGrid");
+
+      socialGrid.innerHTML = "";
+      telecomGrid.innerHTML = "";
+      gamesGrid.innerHTML = "";
+
+      SECTIONS.forEach(sec => {
+        const count = (state.packages[sec.id] || []).length;
+        const card = document.createElement("div");
+
+        if (sec.hasAvatar) {
+          card.className = "sq-card";
+          card.onclick = () => openDetailPage(sec.id);
+          card.innerHTML = `
+            <div class="circle-icon"><img src="${sec.icon}" alt="${sec.title}" /></div>
+            <div class="card-label">${sec.title}</div>
+          `;
+          socialGrid.appendChild(card);
+        } else {
+          card.className = "sq-card text-only-card";
+          card.onclick = () => openDetailPage(sec.id);
+          card.innerHTML = `
+            <div class="card-label">${sec.title}</div>
+            <div class="pkg-badge">${count} بسته</div>
+          `;
+          if (sec.group === "telecom") {
+            telecomGrid.appendChild(card);
+          } else {
+            gamesGrid.appendChild(card);
+          }
+        }
+      });
+    }
+
+    function openDetailPage(secId) {
+      const sec = SECTIONS.find(s => s.id === secId);
+      if (!sec) return;
+      state.activeSectionId = secId;
+      document.getElementById("detailTitle").textContent = sec.title;
+
+      const avatarBox = document.getElementById("detailCenterAvatar");
+      if (sec.hasAvatar && sec.icon) {
+        avatarBox.innerHTML = `<img src="${sec.icon}" alt="${sec.title}" />`;
+      } else {
+        avatarBox.innerHTML = `<div class="detail-center-text-badge">${sec.title}</div>`;
+      }
+
+      renderDetailPackages(secId);
+      document.getElementById("detailPage").classList.add("open");
+    }
+
+    function closeDetailPage() {
+      state.activeSectionId = null;
+      document.getElementById("detailPage").classList.remove("open");
+      renderHomeGrids();
+    }
+
+    function renderDetailPackages(secId) {
+      const listEl = document.getElementById("detailPackageList");
+      const countEl = document.getElementById("detailPkgCount");
+      const pkgs = state.packages[secId] || [];
+      countEl.textContent = pkgs.length;
+      listEl.innerHTML = "";
+
+      if (pkgs.length === 0) {
+        listEl.innerHTML = `
+          <div class="empty-pkg-box">
+            هنوز برای این بخش تعداد و قیمتی ثبت نشده است.<br/>
+            از دکمه <b>«+ افزودن قیمت»</b> در بالای صفحه استفاده کنید.
+          </div>
+        `;
+        return;
+      }
+
+      const curr = state.currency;
+      const currLabel = CURRENCY_LABELS[curr];
+
+      pkgs.forEach((pkg, idx) => {
+        const row = document.createElement("div");
+        row.className = "pkg-row";
+        row.innerHTML = `
+          <div class="pkg-info">
+            <div class="pkg-name">${pkg.name}</div>
+            <div class="pkg-prices-line">
+              <span class="sell-txt">Sell Price ${pkg.sell[curr] || "0"} ${currLabel}</span>
+              <span class="buy-txt">Buy Price ${pkg.buy[curr] || "0"} ${currLabel}</span>
+            </div>
+          </div>
+          <div class="pkg-actions">
+            <button class="info-circle-btn" onclick="showPackageFourCurrencies(${idx})">i</button>
+            <button class="plus-circle-btn" onclick="openOrderModal(${idx})">+</button>
+          </div>
+        `;
+        listEl.appendChild(row);
+      });
+    }
+
+    function openAddPackageModal() {
+      const sec = SECTIONS.find(s => s.id === state.activeSectionId);
+      if (!sec) return;
+      openModal(`
+        <div class="arc-header">
+          <div class="arc-title">افزودن قیمت - ${sec.title}</div>
+          <button class="close-modal-btn" onclick="closeModal()">✕</button>
+        </div>
+        <form onsubmit="saveNewPackage(event)">
+          <div class="form-group">
+            <label>تعداد یا نام بسته</label>
+            <input type="text" id="pkgNameInput" required placeholder="مثال: الماس 50" />
+          </div>
+          <div class="form-group">
+            <label>قیمت فروش به ۴ ارز (لیر / تومن / افغانی / یورو)</label>
+            <div class="grid-2">
+              <input type="text" id="sellTRY" placeholder="فروش لیر" value="0" />
+              <input type="text" id="sellIRT" placeholder="فروش تومن" value="0" />
+              <input type="text" id="sellAFN" placeholder="فروش افغانی" value="0" />
+              <input type="text" id="sellEUR" placeholder="فروش یورو" value="0" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>قیمت خرید به ۴ ارز (لیر / تومن / افغانی / یورو)</label>
+            <div class="grid-2">
+              <input type="text" id="buyTRY" placeholder="خرید لیر" value="0" />
+              <input type="text" id="buyIRT" placeholder="خرید تومن" value="0" />
+              <input type="text" id="buyAFN" placeholder="خرید افغانی" value="0" />
+              <input type="text" id="buyEUR" placeholder="خرید یورو" value="0" />
+            </div>
+          </div>
+          <button type="submit" class="primary-btn">ثبت بسته</button>
+        </form>
+      `);
+    }
+
+    function saveNewPackage(e) {
+      e.preventDefault();
+      const secId = state.activeSectionId;
+      const name = document.getElementById("pkgNameInput").value.trim();
+      if (!name) return;
+
+      state.packages[secId].push({
+        name,
+        sell: {
+          TRY: document.getElementById("sellTRY").value.trim() || "0",
+          IRT: document.getElementById("sellIRT").value.trim() || "0",
+          AFN: document.getElementById("sellAFN").value.trim() || "0",
+          EUR: document.getElementById("sellEUR").value.trim() || "0"
+        },
+        buy: {
+          TRY: document.getElementById("buyTRY").value.trim() || "0",
+          IRT: document.getElementById("buyIRT").value.trim() || "0",
+          AFN: document.getElementById("buyAFN").value.trim() || "0",
+          EUR: document.getElementById("buyEUR").value.trim() || "0"
+        }
+      });
+
+      saveState();
+      closeModal();
+      renderDetailPackages(secId);
+    }
+
+    function showPackageFourCurrencies(pkgIndex) {
+      const sec = SECTIONS.find(s => s.id === state.activeSectionId);
+      const pkg = state.packages[sec.id][pkgIndex];
+      if (!pkg) return;
+
+      openModal(`
+        <div class="arc-header">
+          <div class="arc-title">${pkg.name} (${sec.title})</div>
+          <button class="close-modal-btn" onclick="closeModal()">✕</button>
+        </div>
+        <table class="currency-table">
+          <thead>
+            <tr><th>واحد پول</th><th>قیمت فروش</th><th>قیمت خرید</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>لیر</td><td>${pkg.sell.TRY}</td><td>${pkg.buy.TRY}</td></tr>
+            <tr><td>تومن</td><td>${pkg.sell.IRT}</td><td>${pkg.buy.IRT}</td></tr>
+            <tr><td>افغانی</td><td>${pkg.sell.AFN}</td><td>${pkg.buy.AFN}</td></tr>
+            <tr><td>یورو</td><td>${pkg.sell.EUR}</td><td>${pkg.buy.EUR}</td></tr>
+          </tbody>
+        </table>
+        <button class="primary-btn" onclick="openOrderModal(${pkgIndex})">سفارش این بسته (+)</button>
+      `);
+    }
+
+    function openOrderModal(pkgIndex) {
+      const sec = SECTIONS.find(s => s.id === state.activeSectionId);
+      const pkg = state.packages[sec.id][pkgIndex];
+      if (!pkg) return;
+
+      const curr = state.currency;
+      const currLabel = CURRENCY_LABELS[curr];
+
+      openModal(`
+        <div class="arc-header">
+          <div class="arc-title">سفارش: ${pkg.name}</div>
+          <button class="close-modal-btn" onclick="closeModal()">✕</button>
+        </div>
+        <p style="font-size:12.5px; margin-bottom:10px;">
+          بخش: <b>${sec.title}</b> | قیمت فروش (${currLabel}): <b>${pkg.sell[curr]}</b>
+        </p>
+        <form onsubmit="submitOrder(event, ${pkgIndex})">
+          <div class="form-group">
+            <label>آیدی / شماره حساب / مشخصات گیرنده</label>
+            <input type="text" id="orderTargetInput" required placeholder="مثال: ID 351918724" />
+          </div>
+          <div class="form-group">
+            <label>تعداد سفارش</label>
+            <input type="number" id="orderQtyInput" min="1" value="1" required />
+          </div>
+          <button type="submit" class="whatsapp-btn">ثبت و ارسال به واتس‌اپ (+4915212898695)</button>
+        </form>
+      `);
+    }
+
+    function submitOrder(e, pkgIndex) {
+      e.preventDefault();
+      const sec = SECTIONS.find(s => s.id === state.activeSectionId);
+      const pkg = state.packages[sec.id][pkgIndex];
+      const target = document.getElementById("orderTargetInput").value.trim();
+      const qty = parseInt(document.getElementById("orderQtyInput").value, 10) || 1;
+      const curr = state.currency;
+      const currLabel = CURRENCY_LABELS[curr];
+
+      const sellNum = parseFloat(pkg.sell[curr]) || 0;
+      const buyNum = parseFloat(pkg.buy[curr]) || 0;
+      const totalSell = sellNum * qty;
+      const totalProfit = (sellNum - buyNum) * qty;
+      const nowStr = new Date().toLocaleString("fa-IR");
+
+      state.transactions.unshift({
+        date: nowStr,
+        section: sec.title,
+        pkg: pkg.name,
+        qty,
+        target,
+        amount: `${totalSell} ${currLabel}`
+      });
+
+      state.profits.unshift({
+        date: nowStr,
+        item: `${sec.title} - ${pkg.name} (x${qty})`,
+        profit: `${totalProfit} ${currLabel}`
+      });
+
+      saveState();
+
+      const msg = encodeURIComponent(
+        `سلام KING ASAD TELEKOM\nبخش: ${sec.title}\nبسته: ${pkg.name}\nتعداد: ${qty}\nمبلغ کل: ${totalSell} ${currLabel}\nمشخصات/آیدی: ${target}`
+      );
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${msg}`, "_blank");
+      closeModal();
+    }
+
+    function openMenuModal() {
+      openModal(`
+        <div class="arc-header">
+          <div class="arc-title">منو و مدیریت - KING ASAD TELEKOM</div>
+          <button class="close-modal-btn" onclick="closeModal()">✕</button>
+        </div>
+        <div class="arc-menu-grid">
+          <button class="arc-item-btn" onclick="openSubSection('transactions')"><span class="arc-badge-dot">⇄</span><span>ترانکش</span></button>
+          <button class="arc-item-btn" onclick="openSubSection('receipts')"><span class="arc-badge-dot">🧾</span><span>رسید پول</span></button>
+          <button class="arc-item-btn" onclick="openSubSection('receivables')"><span class="arc-badge-dot">↗</span><span>طلب من</span></button>
+          <button class="arc-item-btn" onclick="openSubSection('payables')"><span class="arc-badge-dot">↙</span><span>طلب شما</span></button>
+          <button class="arc-item-btn" onclick="openSubSection('profits')"><span class="arc-badge-dot">★</span><span>مفاد</span></button>
+          <button class="arc-item-btn" onclick="openSubSection('specs')"><span class="arc-badge-dot">📱</span><span>مشخصات برنامه</span></button>
+          <button class="arc-item-btn" onclick="openSubSection('support')"><span class="arc-badge-dot">🎧</span><span>بخش پشتبانی</span></button>
+          <button class="arc-item-btn" onclick="openSubSection('manager')"><span class="arc-badge-dot">👤</span><span>ارتباط با مدیر برنامه</span></button>
+          <button class="arc-item-btn" onclick="openSubSection('about')"><span class="arc-badge-dot">ℹ</span><span>درباره اپلیکیشن معلومات</span></button>
+          <button class="arc-item-btn" onclick="openSubSection('settings')"><span class="arc-badge-dot">⚙</span><span>تنظیمات اپلیکیشن</span></button>
+          <button class="arc-item-btn" style="grid-column: span 2; justify-content:center;" onclick="openSubSection('logout')"><span class="arc-badge-dot">⎋</span><span>خارج شدن</span></button>
+        </div>
+      `);
+    }
+
+    function openSubSection(sectionKey) {
+      if (sectionKey === "transactions") {
+        const items = state.transactions.length
+          ? state.transactions.map(t => `<div class="ledger-card"><b>${t.section}</b> - ${t.pkg} (${t.qty} عدد)<br/>مبلغ: <b>${t.amount}</b> | آیدی: ${t.target}<br/><small>${t.date}</small></div>`).join("")
+          : `<p style="font-size:12.5px; color:#666;">هنوز تراکنشی ثبت نشده است.</p>`;
+        openModal(`<div class="arc-header"><div class="arc-title">ترانکش‌ها</div><button class="close-modal-btn" onclick="closeModal()">✕</button></div>${items}`);
+      } else if (["receipts", "receivables", "payables"].includes(sectionKey)) {
+        const titles = { receipts: "رسید پول", receivables: "طلب من", payables: "طلب شما" };
+        const items = state[sectionKey].length
+          ? state[sectionKey].map(r => `<div class="ledger-card"><b>${r.title}</b>: <b>${r.amount}</b><br/><small>${r.note || ""}</small></div>`).join("")
+          : `<p style="font-size:12.5px; color:#666;">موردی ثبت نشده است.</p>`;
+        openModal(`
+          <div class="arc-header"><div class="arc-title">${titles[sectionKey]}</div><button class="close-modal-btn" onclick="closeModal()">✕</button></div>
+          <form onsubmit="addLedgerEntry(event, '${sectionKey}')">
+            <div class="form-group"><label>عنوان / نام</label><input type="text" id="entryTitle" required /></div>
+            <div class="form-group"><label>مبلغ و ارز</label><input type="text" id="entryAmount" required /></div>
+            <div class="form-group"><label>توضیحات</label><input type="text" id="entryNote" /></div>
+            <button type="submit" class="primary-btn">ثبت مورد جدید</button>
+          </form>
+          <div style="margin-top:12px;">${items}</div>
+        `);
+      } else if (sectionKey === "profits") {
+        const items = state.profits.length
+          ? state.profits.map(p => `<div class="ledger-card"><b>${p.item}</b><br/>مفاد: <b>${p.profit}</b> | <small>${p.date}</small></div>`).join("")
+          : `<p style="font-size:12.5px; color:#666;">هنوز مفادی ثبت نشده است.</p>`;
+        openModal(`<div class="arc-header"><div class="arc-title">مفاد</div><button class="close-modal-btn" onclick="closeModal()">✕</button></div>${items}`);
+      } else if (sectionKey === "specs") {
+        openModal(`
+          <div class="arc-header"><div class="arc-title">مشخصات برنامه</div><button class="close-modal-btn" onclick="closeModal()">✕</button></div>
+          <div class="ledger-card">
+            <b>نام اپلیکیشن:</b> KING ASAD TELEKOM<br/>
+            <b>ارزهای پشتیبانی‌شده:</b> لیر، تومن، افغانی، یورو<br/>
+            <b>واتس‌اپ ارتباطی:</b> +4915212898695
+          </div>
+        `);
+      } else if (sectionKey === "support" || sectionKey === "manager") {
+        openModal(`
+          <div class="arc-header"><div class="arc-title">${sectionKey === "support" ? "بخش پشتبانی" : "ارتباط با مدیر برنامه"}</div><button class="close-modal-btn" onclick="closeModal()">✕</button></div>
+          <p style="font-size:13px; margin-bottom:10px;">شماره واتس‌اپ رسمی: <b>+4915212898695</b></p>
+          <button class="whatsapp-btn" onclick="window.open('https://wa.me/${WHATSAPP_NUMBER}', '_blank')">پیام مستقیم در واتس‌اپ</button>
+        `);
+      } else if (sectionKey === "about") {
+        openModal(`
+          <div class="arc-header"><div class="arc-title">درباره اپلیکیشن معلومات</div><button class="close-modal-btn" onclick="closeModal()">✕</button></div>
+          <p style="font-size:13px; line-height:1.7;">
+            اپلیکیشن <b>KING ASAD TELEKOM</b> برای عرضه سکه و الماس برنامه‌ها، کریدت و بسته‌های اینترنتی افغانستان و ایران، یوسی و الماس بازی‌ها، حواله‌جات و حسابداری با ۴ واحد پول طراحی شده است.
+          </p>
+        `);
+      } else if (sectionKey === "settings") {
+        openModal(`
+          <div class="arc-header"><div class="arc-title">تنظیمات اپلیکیشن</div><button class="close-modal-btn" onclick="closeModal()">✕</button></div>
+          <div class="form-group">
+            <label>واحد پول پیش‌فرض</label>
+            <select onchange="setCurrency(this.value)">
+              <option value="TRY" ${state.currency === "TRY" ? "selected" : ""}>لیر</option>
+              <option value="IRT" ${state.currency === "IRT" ? "selected" : ""}>تومن</option>
+              <option value="AFN" ${state.currency === "AFN" ? "selected" : ""}>افغانی</option>
+              <option value="EUR" ${state.currency === "EUR" ? "selected" : ""}>یورو</option>
+            </select>
+          </div>
+          <button class="primary-btn" style="background:#b71c1c;" onclick="resetAllData()">پاک کردن همه داده‌های ذخیره شده</button>
+        `);
+      } else if (sectionKey === "logout") {
+        openModal(`
+          <div class="arc-header"><div class="arc-title">خارج شدن</div><button class="close-modal-btn" onclick="closeModal()">✕</button></div>
+          <p style="font-size:13px; margin-bottom:10px;">آیا می‌خواهید از حساب خارج شوید؟</p>
+          <button class="primary-btn" onclick="closeDetailPage(); closeModal();">تایید و بازگشت به صفحه اصلی</button>
+        `);
+      }
+    }
+
+    function showInstallGuide() {
+      openModal(`
+        <div class="arc-header">
+          <div class="arc-title">نصب روی آیفون و اندروید</div>
+          <button class="close-modal-btn" onclick="closeModal()">✕</button>
+        </div>
+        <div class="ledger-card">
+          <b>در گوشی اندروید (Chrome):</b><br/>
+          روی دکمه منو (<b>⋮</b>) در بالای مرورگر بزنید و گزینه <b>Add to Home screen / افزودن به صفحه اصلی</b> را انتخاب کنید.
+        </div>
+        <div class="ledger-card">
+          <b>در گوشی آیفون (Safari):</b><br/>
+          روی دکمه اشتراک‌گذاری (<b>↑</b>) در پایین صفحه بزنید و گزینه <b>Add to Home Screen</b> را انتخاب کنید.
+        </div>
+      `);
+    }
+
+    function addLedgerEntry(e, bucket) {
+      e.preventDefault();
+      const title = document.getElementById("entryTitle").value.trim();
+      const amount = document.getElementById("entryAmount").value.trim();
+      const note = document.getElementById("entryNote").value.trim();
+      if (!title || !amount) return;
+      state[bucket].unshift({ title, amount, note });
+      saveState();
+      openSubSection(bucket);
+    }
+
+    function resetAllData() {
+      localStorage.removeItem("KING_ASAD_TELEKOM_PWA_V1");
+      location.reload();
+    }
+
+    function openModal(html) {
+      document.getElementById("modalContent").innerHTML = html;
+      document.getElementById("modalOverlay").classList.add("open");
+    }
+
+    function closeModal() {
+      document.getElementById("modalOverlay").classList.remove("open");
+    }
+
+    function handleOverlayClick(e) {
+      if (e.target.id === "modalOverlay") closeModal();
+    }
+
+    loadState();
+    setCurrency(state.currency);
+    renderHomeGrids();
+  </script>
+</body>
+</html>
